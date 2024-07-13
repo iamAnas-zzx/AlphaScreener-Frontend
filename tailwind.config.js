@@ -15,7 +15,9 @@ export default withMT({
         },
         customDarkBlue : {
           500 : '#36bfec',
-          700 : '#72d2f2'
+          700 : '#72d2f2',
+          900 : '#1a3a6e',
+          1100: '#11284e'
         },
         customBlack : {
           100: '#1a202c',

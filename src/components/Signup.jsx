@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from 'react-router-dom';
-import InputBox from './Input';
-import Button from './Button';
+import InputBox from './InputBoxes/Input';
+import Button from './Buttons/Button';
 import Icon from './Icon';
 
 function Signup() {
@@ -46,7 +46,7 @@ function Signup() {
                 </div>
                 <div className="text-center mt-4">
                     <Link to="/" className="text-sm text-blue-500 hover:text-blue-800">
-                        Already Signup? Signin now!
+                        Already Signup? Login now!
                     </Link>
                 </div>
             </div>

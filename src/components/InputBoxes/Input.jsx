@@ -1,4 +1,3 @@
-import React from 'react';
 import { Input } from '@material-tailwind/react';
 
 const InputBox = ({ color , label, type = 'text', value, onChange , className , ...props }) => {

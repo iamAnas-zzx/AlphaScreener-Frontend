@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
-import InputBox from './Input';
-import Button from './Button';
+import InputBox from './InputBoxes/Input';
+import Button from './Buttons/Button';
 import Icon from './Icon';
 
 const Login = () => {
@@ -15,7 +15,7 @@ const Login = () => {
     };
 
     return (
-        <div className="max-w-sm w-full mx-auto mt-10">
+        <div className="max-w-sm w-full mx-auto mt-10 "  >
             <div className="justify-center bg-gradient-to-r from-[#11284e] to-[#1a3a6e] shadow-md rounded px-8 pt-6 pb-8 mb-4">
                 <div className="mt-4 mb-4 flex items-center justify-center">
                     <Icon
@@ -24,12 +24,12 @@ const Login = () => {
                 </div>                            
                 <h2 className="text-center text-2xl text-white font-bold mb-2">Login to</h2>
                 <h2 className="text-center text-2xl text-white font-bold mb-4">Alpha-Screener</h2>
-                <div className='flex mx-auto flex-col gap-6' >
+                <div className='flex flex-col gap-6' >
                     <InputBox
                         color='blue'
                         value={userId}
                         onChange={(e) => setUserId(e.target.value)}
-                        label="User ID"
+                        label="User ID"                        
                         className='text-white'
                     />
                     <InputBox
