@@ -8,8 +8,10 @@ export default withMT({
   theme: {
     extend: {
       colors: {
+        customGrey: '#94A3B8',
         customPink: '#FBEAEB',
         customLightBlue : {
+          300 : '#38A9F8',
           500 : '#CADCFC',
           700 : '#d5e3fd'
         },

@@ -61,29 +61,47 @@ function Header() {
             window.removeEventListener("resize", handleWindowResize);
         };
     }, []);
-    
+
     return (
         <header className='flex flex-row items-center py-3 shadow  bg-gradient-to-r from-[#11284e] to-[#1a3a6e] w-full '>
             <Container >
                 <nav className='flex justify-between w-full'>
                     <div className='mr-4 flex flex-row items-center text-white'>
-                        { openNav && <SidebarWithBurgerMenu />}
+                        {openNav && <SidebarWithBurgerMenu />}
                         <Link to='/' className="flex items-center text-2xl" >
                             Alpha-Screener
                         </Link>
                     </div>
-                    <div className="hidden lg:flex">
+                    <div className="hidden lg:flex ">
                         <ul className='flex ml-auto'>
                             {navItems.map((item) =>
                             // item.active ? 
                             (
                                 <li key={item.name}>
-                                    <button
+                                    <Button
                                         onClick={() => navigate(item.slug)}
                                         // className="px-6 py-2 text-red hover:text-white"
-                                        className='inline-bock px-6 py-2 text-white duration-200 hover:bg-blue-100 hover:text-red rounded-full'
-                                        // className="inline-block px-6 py-2  duration-200 hover:text-underline  "
-                                    >{item.name}</button>
+                                        // hover:bg-blue-100
+                                        // label={item.name}
+                                        className={`inline-block px-6 py-2 ${item.active ? "text-customLightBlue-300" : ""} hover:text-customLightBlue-300`}
+                                    >
+                                        {/* <span className="relative inline-block after:content-[''] after:block after:w-full after:h-[2px] after:bg-customLightBlue-300 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-400 after:ease-in-out">
+                                            {item.name} 
+                                        </span> */}
+                                        {/* {item.name} */}
+                                        {/* <span className="relative inline-block" color="white"> */}
+                                        {/* {item.name} */}
+                                        {/* <span className="absolute  inset-x-0 bottom-0 h-[2px] w-[10px] bg-customLightBlue-300 scale-x-0 transition-transform duration-400 ease-in-out origin-left hover:scale-x-100"></span> */}
+                                        {/* <span class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600"></span> */}
+
+                                        {/* </span> */}
+                                        <span className="group transition-all duration-300 ease-in-out" >
+                                            <span className="bg-left-bottom bg-gradient-to-r from-customLightBlue-300 to-customLightBlue-300 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-400 ease-out">
+                                                {/* This text gets 'underlined' on hover */}
+                                                {item.name}
+                                            </span>
+                                        </span>
+                                    </Button>
                                 </li>
                             )
                                 // : null

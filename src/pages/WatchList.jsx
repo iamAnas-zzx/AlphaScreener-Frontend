@@ -1,7 +1,6 @@
-import { NavbarSimple } from "../components/Header/NavBar";
 import Header from "../components/Header/Header";
-import Container from '../components/container/Container'
 import {Watchlist as Lists }  from "../components/Lists";
+import Tabledata from "../components/Table";
 function Watchlist() {
     return <>
         <div className="min-h-screen min-w-[270px] flex flex-col bg-customLightBlue-700" >
@@ -11,9 +10,9 @@ function Watchlist() {
             <div >
                 <Lists />
             </div>
-            {/* <div className="container " >
-
-            </div> */}
+            <div className="" >
+                <Tabledata />
+            </div>
         </div>
     </>
 }
