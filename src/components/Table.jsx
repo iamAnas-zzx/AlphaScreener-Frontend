@@ -17,9 +17,11 @@ import {
     Tooltip,
     Input,
 } from "@material-tailwind/react";
+import { useState, useEffect } from "react";
 
 const TABLE_HEAD = ["Transaction", "Amount", "Date", "Status", "Account", ""];
 
+// const [loading, setLoading] = useState(true);
 const TABLE_ROWS = [
     {
         img: "https://docs.material-tailwind.com/img/logos/logo-spotify.svg",
@@ -72,7 +74,54 @@ const TABLE_ROWS = [
         expiry: "06/2026",
     },
 ];
+
+
 function Tabledata() {
+
+
+    function setHead(data) {
+        const headerData = data.map((item) => item.results);
+        console.log(headerData);
+        // setThead
+        const f = headerData[0];
+        // console.log(f);
+        const d = f.map(a => {
+            return Object.keys(a);
+        })
+        setThead(d);
+        // console.log(d);
+        // })
+    }
+
+
+
+    const fetchData = async () => {
+        try {
+            const res = await fetch('http://192.168.1.16:8000/watchList/');
+            const response = await res.json();
+            console.log(response);
+            setData(response);
+            setHead(response);
+            // Assuming the response is the data you need to set
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
+    useEffect(() => {
+        // Fetch data from API
+        // fetchData();
+        // const res = fetch('http://localhost:8000/watchList/');
+        // const response = res.json();
+        // console.log(response);
+        // setData(res.data); 
+        // setData(response.data);
+        // setInterval( fetchData ,1000);
+        fetchData()
+            ;
+    }, [])
+
+    const [data, setData] = useState([]);
+    const [thead, setThead] = useState([]);
 
     return (
         <Container>
@@ -105,7 +154,7 @@ function Tabledata() {
                     <table className="w-full min-w-max table-auto text-left">
                         <thead>
                             <tr>
-                                {TABLE_HEAD.map((head) => (
+                                {thead.map((head) => (
                                     <th
                                         key={head}
                                         className="border-y border-blue-gray-100 bg-blue-gray-50/50 p-4"
@@ -256,7 +305,7 @@ function Tabledata() {
                     </table>
                 </CardBody>
                 <CardFooter className="flex items-center justify-between border-t border-blue-gray-50 p-4">
-                    <Button 
+                    <Button
                         size="sm"
                         label="Previous"
                         // color='cutomDarkBlue-500'
@@ -264,8 +313,8 @@ function Tabledata() {
                     >
                     </Button>
                     <div className="flex items-center gap-2">
-                        <IconButton 
-                            variant="outlined" 
+                        <IconButton
+                            variant="outlined"
                             className="border-white text-white"
                             size="sm">
                             1
@@ -285,11 +334,11 @@ function Tabledata() {
                         <IconButton variant="text" size="sm" className="text-white hover:bg-customLightBlue-700 hover:text-blue-gray-800">
                             9
                         </IconButton>
-                        <IconButton variant="text" size="sm" className="text-white hover:bg-customLightBlue-700 hover:text-blue-gray-800">
+                        <IconButton variant="text" size="sm" >
                             10
                         </IconButton>
                     </div>
-                    <Button 
+                    <Button
                         size="sm"
                         label="Next"
                         className="!text-blue-gray-800 bg-customLightBlue-500 hover:bg-customLightBlue-700 hover:text-black"
@@ -300,9 +349,5 @@ function Tabledata() {
         </Container>
     )
 }
-
-
-
-
 
 export default Tabledata;

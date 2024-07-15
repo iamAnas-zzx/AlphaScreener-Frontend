@@ -33,7 +33,7 @@ function Watchlist() {
                         <Watchlistbutton
                             key={ls.name}
                             label={ls.name}
-                            className={`${ls.active ?  "bg-customDarkBlue-1100 !text-customLightBlue-300" : "bg-customDarkBlue-900  hover:bg-customDarkBlue-1100 hover:text-customLightBlue-300"} w-full`}
+                            className={`${ls.active ?  "bg-customDarkBlue-1100 " : "bg-customDarkBlue-900  hover:bg-customDarkBlue-1100 "} w-full`}
                             
                         >{ls.name}</Watchlistbutton> 
                 ))}
